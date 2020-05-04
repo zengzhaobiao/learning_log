@@ -1,0 +1,76 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>学习笔记</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+
+{#    <!-- Staic navbar -->#}
+    <nav class="navbar navbar-default navbar-staic-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                </button>
+                <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
+                    学习笔记
+                </a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'learning_logs:topics' %}">主题</a> </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a>Hello,{{ user.username }}.</a></li>
+                        <li><a href="{% url 'users:logout' %}">注销</a></li>
+                    {% else %}
+                        <li><a href="{% url 'users:login' %}">登录</a></li>
+                        <li><a href="{% url 'users:register' %}">注册</a></li>
+                    {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            {% block header %}
+            {% endblock header %}
+        </div>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div> <!-- /container -->
+
+{#    <p>#}
+{#        <a href="{% url 'learning_logs:index' %}">学习笔记</a>#}
+{#        <a>&nbsp&nbsp&nbsp</a>#}
+{#        <a href="{% url 'learning_logs:topics' %}">主题</a>#}
+{#        {% if user.is_authenticated %}#}
+{#            &nbsp&nbsp&nbspHello,{{ user.username }}.#}
+{#            <a href="{% url 'users:logout' %}">注销</a>#}
+{#        {% else %}#}
+{#            <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>#}
+{#            <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>#}
+{#            <a href="{% url 'users:login' %}">登录</a>#}
+{#            <a>&nbsp&nbsp&nbsp</a>#}
+{#            <a href="{% url 'users:register' %}">注册</a>#}
+{#        {% endif %}#}
+{#    </p>#}
+{#{% block content %}{% endblock content %}#}
+</body>
+</html>
