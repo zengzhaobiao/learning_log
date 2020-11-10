@@ -1,4 +1,3 @@
 # learning_log
 learning log from a book
-Hello,everyone
-This is my first time to use github
+《python编程从入门到实践》的学习笔记项目
