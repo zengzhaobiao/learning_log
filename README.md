@@ -1,4 +1,4 @@
-# 基于Django实现的学习笔记项目 -- 《python编程从入门到实践》
+# 基于Django实现的学习笔记项目
 《python编程从入门到实践》的一个项目，基于Django、bootstrap和sqlite实现
 基本功能：
 1、用户注册登录功能，无验证功能，注册即可登录；
